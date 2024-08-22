@@ -55,5 +55,17 @@ namespace WinFormAdv
         {
             toolStripProgressBar1.Value = 50;
         }
+
+        private void 열기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 파일 열기 창
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "텍스트 파일(*.txt)|*.txt|모든파일(*.*)|*.*"; // 텍스트 파일만 분류
+            // 텍스트 파일 읽어오기
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = System.IO.File.ReadAllText(ofd.FileName);
+            }
+        }
     }
 }
